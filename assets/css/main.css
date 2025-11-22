@@ -18,6 +18,27 @@
   --heading-font: "Mulish",  sans-serif;
   --nav-font: "Raleway",  sans-serif;
 }
+/* Spacing sizes to use everywhere */
+:root {
+  --space-sm: 4px;
+  --space-md: 8px;
+  --space-lg: 16px;
+}
+
+/* Space below each section */
+section {
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+}
+
+/* Boxes with border, round corners, shadow */
+.content-block {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+ }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
@@ -67,21 +88,88 @@ body {
   background-color: var(--background-color);
   font-family: var(--default-font);
 }
-
 a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: 0.3s;
+    color: #0057d9;
+    text-decoration: none;
+    transition: 0.2s ease;
+    font-weight: 1500;
+    text-decoration: overline underline;
+  }
+
+  a:hover {
+    color: #003c95;
+    text-decoration: dotted underline;
+  }
+
+  a:active {
+    color: #001d4d;
+    text-decoration: line-through;
+  }
+
+  /* Buttons */
+  button,
+  .btn,
+  .btn-getstarted,
+  .cta-btn {
+    background: #0057d9;
+    color: rgba(255, 255, 255, 0.212);
+    border-radius: 8px;
+    padding: 0.6rem 1.4rem;
+    font-weight: 1600;
+    transition: 0.25s ease;
+    border: none;
+  }
+
+  button:hover,
+  .btn:hover,
+  .btn-getstarted:hover,
+  .cta-btn:hover {
+    background: #689500;
+  }
+
+  button:active,
+  .btn:active,
+  .btn-getstarted:active,
+  .cta-btn:active {
+    background: #08004d;
+  }
+
+h1 {
+  font-family: 'Georgia', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  color: #2a2a2a;
 }
 
-a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
-  text-decoration: none;
+h2 {
+  font-family: 'Georgia', serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  color: #3a3a3a;
 }
 
-h1,
-h2,
-h3,
+h3 {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  color: #4a4a4a;
+}
+
+p {
+  font-family: 'Lucida Handwriting', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  color: #555555;
+  margin-bottom: 1.2em;
+}
 h4,
 h5,
 h6 {
@@ -229,21 +317,22 @@ h6 {
 --------------------------------------------------------------*/
 /* Navmenu - Desktop */
 @media (min-width: 1200px) {
-  .navmenu {
-    padding: 0;
-  }
+ .navmenu {
+ padding: 0;
+ }
 
-  .navmenu ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    align-items: center;
-  }
 
-  .navmenu li {
-    position: relative;
-  }
+.navmenu ul {
+margin: 0;
+padding: 0;
+display: flex;
+list-style: none;
+align-items: center;
+}
+
+ .navmenu li {
+   position: relative;
+   }
 
   .navmenu a,
   .navmenu a:focus {
@@ -271,7 +360,24 @@ h6 {
     padding-right: 0;
   }
 
-  .navmenu li:hover>a,
+nav#navmenu {
+  background: #faf8fa48;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 0 0 15px 15px;
+}
+
+nav#navmenu ul li a {
+  padding: 1rem 1.5rem;
+  color: #0056b3;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav#navmenu ul li a:hover {
+  background: #0056b3;
+  color: white;
+  border-radius: 10px;
+}
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--nav-hover-color);
@@ -639,8 +745,8 @@ h6 {
   line-height: 0;
 }
 
-.scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+#scroll-top:hover {
+  background-color: #005fa3;
   color: var(--contrast-color);
 }
 
