@@ -24,7 +24,7 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <!--<link rel="stylesheet" href="styles.css"> -->
   <link rel="stylesheet" href="custom.css">
 
   <!-- Main CSS File -->
@@ -814,89 +814,98 @@
     </section><!-- /Portfolio Section -->
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+<section id="contact" class="contact section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Contact</span>
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <span class="subtitle">Contact</span>
+    <h2>Contact</h2>
+    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
+  </div>
 
-      <div class="container">
+  <div class="container">
+    <div class="row gy-4">
 
-        <div class="row gy-4">
-
-          <div class="col-lg-4">
-            <div class="info-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-geo-alt"></i>
-              </div>
-              <div>
-                <h3>Address</h3>
-                <p>2847 Oak Street, San Francisco, CA 94102</p>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-telephone"></i>
-              </div>
-              <div>
-                <h3>Call Me</h3>
-                <p>+1 (555) 234-5678</p>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <div class="icon-wrapper">
-                <i class="bi bi-envelope"></i>
-              </div>
-              <div>
-                <h3>Email Me</h3>
-                <p>alex@example.com</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div>
-
+      <!-- Left column – contact info -->
+      <div class="col-lg-4">
+        <div class="info-item">
+          <div class="icon-wrapper"><i class="bi bi-geo-alt"></i></div>
+          <div><h3>Address</h3><p>2847 Oak Street, San Francisco, CA 94102</p></div>
         </div>
-
+        <div class="info-item">
+          <div class="icon-wrapper"><i class="bi bi-telephone"></i></div>
+          <div><h3>Call Me</h3><p>+1 (555) 234-5678</p></div>
+        </div>
+        <div class="info-item">
+          <div class="icon-wrapper"><i class="bi bi-envelope"></i></div>
+          <div><h3>Email Me</h3><p>alex@example.com</p></div>
+        </div>
       </div>
 
-    </section><!-- /Contact Section -->
+      <!-- Right column – the form -->
+      <div class="col-lg-8">
+
+        <!-- IMPORTANT: id + novalidate + no action/method -->
+        <form id="contactForm" class="php-email-form" action="#" novalidate>
+          <div class="row gy-4">
+
+          <div class="col-md-6">
+            <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+          </div>
+
+          <div class="col-md-6">
+            <input type="text" name="surname" id="surname" class="form-control" placeholder="Your Surname" required>
+          </div>
+
+          <div class="col-md-6">
+            <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" required>
+          </div>
+
+          <div class="col-md-6">
+            <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone number" required>
+          </div>
+
+          <div class="col-md-12">
+            <input type="text" name="address" id="address" class="form-control" placeholder="Your Address" required>
+          </div>
+
+          <!-- Rating sliders -->
+          <div class="col-md-4 rating-wrapper">
+            <label for="rating1" class="form-label">Service Quality (1–10)</label>
+            <input type="range" class="form-range" min="1" max="10" step="0.1" value="5" id="rating1">
+            <span class="range-value" id="value1">5.0</span>
+          </div>
+
+          <div class="col-md-4 rating-wrapper">
+            <label for="rating2" class="form-label">Speed of Response (1–10)</label>
+            <input type="range" class="form-range" min="1" max="10" step="0.1" value="5" id="rating2">
+            <span class="range-value" id="value2">5.0</span>
+          </div>
+
+          <div class="col-md-4 rating-wrapper">
+            <label for="rating3" class="form-label">Overall Satisfaction (1–10)</label>
+            <input type="range" class="form-range" min="1" max="10" step="0.1" value="5" id="rating3">
+            <span class="range-value" id="value3">5.0</span>
+          </div>
+
+          <div class="col-md-12 text-center">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+
+         </div>
+        </form>
+
+        <!-- This is where the results + average will appear -->
+        <div id="formResult" class="mt-5"></div>
+
+      </div>
+    </div>
+  </div>
+</section>
 
   </main>
 
@@ -972,7 +981,7 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
@@ -983,7 +992,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="assets/js/custom.js"></script>
 </body>
 
 </html>
