@@ -1,0 +1,105 @@
+.fade-in {
+    animation: fadeIn 5.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.button-grow:hover {
+  animation: grow 0.9s ease;
+}
+
+@keyframes grow {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 40px auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.fade-in[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Game Section */
+.memory-game {
+  padding: 60px 0;
+  background: #f8f9fa; /* Light gray to match template */
+}
+
+.game-board {
+  max-width: 600px; /* Adjust based on grid size */
+  margin: 0 auto;
+}
+
+.memory-card {
+  width: 100px; /* Adjust for your grid */
+  height: 100px;
+  margin: 5px;
+  perspective: 1000px; /* For 3D flip */
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.memory-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card-front {
+  background: #007bff; /* Blue like Bootstrap primary */
+  color: white;
+  font-size: 2rem; /* For icons */
+}
+
+.card-back {
+  background: #6c757d; /* Gray for hidden */
+  transform: rotateY(180deg);
+}
+
+.memory-card.matched .card-front {
+  background: #28a745; /* Green for matched */
+}
+
+.memory-card.disabled {
+  pointer-events: none;
+}
+
+.stats-panel {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.win-message {
+  font-size: 1.2rem;
+}
