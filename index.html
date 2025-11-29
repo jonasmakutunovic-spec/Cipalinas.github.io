@@ -77,6 +77,7 @@
             </ul>
           </li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#memory-game">Memory Game</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -902,6 +903,47 @@
         <!-- This is where the results + average will appear -->
         <div id="formResult" class="mt-5"></div>
 
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Memory Game Section -->
+<section id="memory-game" class="memory-game section">
+  <div class="container section-title" data-aos="fade-up">
+    <span class="subtitle">Fun Stuff</span>
+    <h2>Memory Game</h2>
+    <p>Test your memory with this flip card game!</p>
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <!-- Difficulty selector -->
+        <div class="difficulty-selector mb-4 text-center">
+          <label for="difficulty">Choose Difficulty: </label>
+          <select id="difficulty" class="form-select d-inline-block w-auto">
+            <option value="easy">Easy (4x3)</option>
+            <option value="hard">Hard (6x4)</option>
+          </select>
+        </div>
+
+        <!-- Game board (dynamic) -->
+        <div id="game-board" class="game-board d-flex flex-wrap justify-content-center mb-4"></div>
+
+        <!-- Stats panel -->
+        <div id="stats-panel" class="stats-panel text-center mb-3">
+          Moves: <span id="moves">0</span> | Matches: <span id="matches">0</span>
+        </div>
+
+        <!-- Win message -->
+        <div id="win-message" class="win-message text-center alert alert-success d-none mb-3"></div>
+
+        <!-- Buttons -->
+        <div class="text-center">
+          <button id="start-btn" class="btn btn-primary me-2">Start</button>
+          <button id="restart-btn" class="btn btn-secondary" disabled>Restart</button>
+        </div>
       </div>
     </div>
   </div>
