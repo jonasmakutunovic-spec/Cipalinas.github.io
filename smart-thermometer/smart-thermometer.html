@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Thermometer | Jonas Makutunovic</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Smart Outdoor Thermometer</h1>
+      <p class="subtitle">Real-time weather with rain chance, feels-like, humidity & geolocation</p>
+      
+      <div class="header-controls">
+        <button id="geo-btn" class="btn-geo"><i class="bi bi-geo-alt-fill"></i> Use My Location</button>
+        <button id="theme-toggle" class="btn-theme"><i class="bi bi-moon-stars-fill"></i></button>
+      </div>
+
+      <a href="../index.html" class="back-link">Back to Portfolio</a>
+    </header>
+
+    <main>
+      <section id="thermometer" class="thermometer-card">
+        <div class="input-group">
+          <input type="text" id="city-input" placeholder="Enter city (e.g., Vilnius, London, Tokyo)" value="Vilnius">
+        </div>
+
+        <!-- City name -->
+        <h2 id="city-name" class="city-name">Vilnius</h2>
+
+        <!-- Main display -->
+        <div class="display">
+          <div id="temperature" class="temperature">--.-</div>
+          <div id="unit" class="unit">°C</div>
+        </div>
+
+        <!-- Extra info row -->
+        <div class="extra-info">
+          <div class="info-item">
+            <i class="bi bi-thermometer-sun"></i>
+            <span>Feels like <strong id="feels-like">--.-°C</strong></span>
+          </div>
+          <div class="info-item">
+            <i class="bi bi-droplet"></i>
+            <span>Humidity <strong id="humidity">--%</strong></span>
+          </div>
+        </div>
+
+        <!-- Rain chance badge -->
+        <div class="rain-badge" id="rain-badge">
+          <div class="rain-icon"><i class="bi bi-cloud-rain"></i></div>
+          <div class="rain-percent" id="rain-percent">--%</div>
+          <div class="rain-text">Chance of rain</div>
+        </div>
+
+        <!-- Thermometer visual -->
+        <div class="thermometer">
+          <div class="thermometer-tube">
+            <div id="mercury" class="mercury"></div>
+          </div>
+          <div class="thermometer-bulb"></div>
+        </div>
+
+        <!-- Status -->
+        <div id="status" class="status normal">Ready to measure</div>
+
+        <!-- Controls -->
+        <div class="controls">
+          <button id="measure-btn" class="btn-primary">
+            <i class="bi bi-cloud-arrow-down-fill"></i> Get Weather
+          </button>
+          <select id="unit-select" class="unit-select">
+            <option value="C">Celsius (°C)</option>
+            <option value="F">Fahrenheit (°F)</option>
+          </select>
+        </div>
+
+        <!-- History -->
+        <div class="history-section">
+          <div class="history-header">
+            <h3>Recent Locations</h3>
+            <button id="clear-btn" class="btn-clear">Clear</button>
+          </div>
+          <ul id="history-list" class="history-list"></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      Smart Outdoor Thermometer • Built with HTML, CSS & JavaScript • 2025
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

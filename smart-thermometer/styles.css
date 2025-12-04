@@ -1,0 +1,435 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  min-height: 100vh;
+  padding: 20px;
+  transition: background 1.5s ease, color 0.3s ease;
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); /* Default mild blue */
+}
+
+/* Dynamic Backgrounds Based on Temperature */
+body.temp-cold { background: linear-gradient(135deg, #a8e6ff 0%, #3498db 100%); }
+body.temp-mild { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); }
+body.temp-warm { background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%); }
+body.temp-hot { background: linear-gradient(135deg, #ff7675 0%, #d63031 100%); }
+
+/* Dark Mode Overrides */
+body.dark {
+  --bg-primary: #0f0f1e;
+  --bg-card: rgba(26, 26, 46, 0.8);
+  --text-primary: #eee;
+  --text-secondary: #bbb;
+  --accent: #6c5ce7;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  background: var(--bg-primary) !important;
+  color: var(--text-primary);
+}
+
+body.dark .thermometer-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Container & Header */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 8px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  opacity: 0.9;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* Header Controls */
+.header-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.btn-geo, .btn-theme {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.btn-geo:hover, .btn-theme:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.back-link {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.back-link:hover { text-decoration: underline; }
+
+/* Thermometer Card - Glassmorphism Effect */
+.thermometer-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: var(--shadow, 0 20px 40px rgba(0, 0, 0, 0.2));
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.4s ease;
+}
+
+.thermometer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow, 0 25px 50px rgba(0, 0, 0, 0.3));
+}
+
+/* Input Group */
+.input-group {
+  margin-bottom: 20px;
+}
+
+#city-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2rem;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: border-color 0.3s ease;
+}
+
+#city-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#city-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* City Name */
+.city-name {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Display */
+.display {
+  margin-bottom: 20px;
+}
+
+.temperature {
+  font-size: 6rem;
+  font-weight: 200;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5px;
+}
+
+.unit {
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Extra Info Row */
+.extra-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+
+.info-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.info-item i {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Rain Badge */
+.rain-badge {
+  margin: 30px auto;
+  width: 160px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.5s ease;
+  backdrop-filter: blur(5px);
+}
+
+.rain-high { 
+  border-color: #0984e3; 
+  background: rgba(9, 132, 227, 0.25); 
+  transform: scale(1.05);
+}
+
+.rain-veryhigh { 
+  border-color: #d63031; 
+  background: rgba(214, 48, 49, 0.25); 
+  animation: pulse 2s infinite;
+}
+
+.rain-icon { 
+  font-size: 3rem; 
+  margin-bottom: 8px; 
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.rain-percent { 
+  font-size: 2.5rem; 
+  font-weight: bold; 
+  color: white;
+}
+
+.rain-text { 
+  font-size: 1rem; 
+  color: rgba(255, 255, 255, 0.8); 
+}
+
+/* Thermometer Visual */
+.thermometer {
+  height: 320px;
+  margin: 40px auto;
+  position: relative;
+  width: 90px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.thermometer-tube {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 260px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.mercury {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, #00bfff 0%, #ffff00 50%, #ff4500 100%);
+  height: 0%;
+  transition: height 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+.thermometer-bulb {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, #ff4500 0%, #cc3700 100%);
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Status */
+.status {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 25px 0;
+  padding: 15px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.status.freezing { background: rgba(52, 152, 219, 0.3); }
+.status.hot { background: rgba(231, 76, 60, 0.3); animation: pulse 2s infinite; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.02); }
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 35px 0;
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 18px 28px;
+  font-size: 1.3rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.unit-select {
+  padding: 15px;
+  font-size: 1.2rem;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-align: center;
+}
+
+/* History Section */
+.history-section {
+  margin-top: 45px;
+  text-align: left;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.history-header h3 {
+  font-size: 1.4rem;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-clear {
+  background: rgba(231, 76, 60, 0.8);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn-clear:hover { background: rgba(231, 76, 60, 1); }
+
+.history-list {
+  list-style: none;
+  max-height: 220px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.history-list li {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  transition: background 0.3s ease;
+}
+
+.history-list li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.history-list li:last-child { border-bottom: none; }
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  body { padding: 10px; }
+  .header h1 { font-size: 2.2rem; }
+  .temperature { font-size: 4.5rem; }
+  .unit { font-size: 2rem; }
+  .thermometer { height: 280px; }
+  .thermometer-tube { height: 220px; width: 24px; }
+  .extra-info { gap: 20px; }
+  .info-item { font-size: 1rem; }
+  .rain-badge { width: 120px; height: 120px; }
+  .rain-percent { font-size: 2rem; }
+  .rain-icon { font-size: 2.2rem; }
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
