@@ -1,5 +1,4 @@
-/* Reset & Base Styles */
-* {
+ {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,13 +13,11 @@ body {
   background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); /* Default mild blue */
 }
 
-/* Dynamic Backgrounds Based on Temperature */
 body.temp-cold { background: linear-gradient(135deg, #a8e6ff 0%, #3498db 100%); }
 body.temp-mild { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); }
 body.temp-warm { background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%); }
 body.temp-hot { background: linear-gradient(135deg, #ff7675 0%, #d63031 100%); }
 
-/* Dark Mode Overrides */
 body.dark {
   --bg-primary: #0f0f1e;
   --bg-card: rgba(26, 26, 46, 0.8);
@@ -38,7 +35,6 @@ body.dark .thermometer-card {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-/* Container & Header */
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -64,7 +60,6 @@ body.dark .thermometer-card {
   margin-bottom: 20px;
 }
 
-/* Header Controls */
 .header-controls {
   display: flex;
   justify-content: center;
@@ -100,7 +95,6 @@ body.dark .thermometer-card {
 
 .back-link:hover { text-decoration: underline; }
 
-/* Thermometer Card - Glassmorphism Effect */
 .thermometer-card {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
@@ -117,11 +111,9 @@ body.dark .thermometer-card {
   box-shadow: var(--shadow, 0 25px 50px rgba(0, 0, 0, 0.3));
 }
 
-/* Input Group */
 .input-group {
   margin-bottom: 20px;
 }
-
 #city-input {
   width: 100%;
   padding: 15px;
@@ -244,7 +236,6 @@ body.dark .thermometer-card {
   color: rgba(255, 255, 255, 0.8); 
 }
 
-/* Thermometer Visual */
 .thermometer {
   height: 320px;
   margin: 40px auto;
@@ -291,7 +282,6 @@ body.dark .thermometer-card {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Status */
 .status {
   font-size: 1.5rem;
   font-weight: 500;
@@ -312,7 +302,6 @@ body.dark .thermometer-card {
   50% { opacity: 0.9; transform: scale(1.02); }
 }
 
-/* Controls */
 .controls {
   display: flex;
   flex-direction: column;
@@ -352,7 +341,6 @@ body.dark .thermometer-card {
   text-align: center;
 }
 
-/* History Section */
 .history-section {
   margin-top: 45px;
   text-align: left;
@@ -410,7 +398,6 @@ body.dark .thermometer-card {
 
 .history-list li:last-child { border-bottom: none; }
 
-/* Responsive Design */
 @media (max-width: 480px) {
   body { padding: 10px; }
   .header h1 { font-size: 2.2rem; }
@@ -425,11 +412,11 @@ body.dark .thermometer-card {
   .rain-icon { font-size: 2.2rem; }
 }
 
-/* Footer */
 .footer {
   text-align: center;
   margin-top: 50px;
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.95rem;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
 }
